@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head><title>Digital Clock</title>
+	<link href="https://fonts.googleapis.com/css?family=Orbitron:400,700,900" rel="stylesheet">
+	</head>
+	<body>
+		<style>
+			body{
+			background:#000;
+			}
+			<!-- div{position:absolute;} -->
+			<!-- span{position:absolute;} -->
+		</style>
+		<div class="wrapper" id="div1">
+			<span class="wrapper1 time" id = "watch"></span>
+		</div>
+		<script>
+		var bg=document.getElementById("div1");
+			bg.style.backgroundColor="black";
+			function myWatch(){
+				var d = new Date();
+				var h = d.getHours();
+				h<10 ? h= "0" + h : h ;
+				var m= d.getMinutes();
+				m<10 ? m= "0" + m : m ;
+				var s = d.getSeconds();
+				s<10 ? s= "0" + s : s ;
+				setTimeout(myWatch,500);
+				document.getElementById("watch").innerHTML= h +":" + m + ":" + s;
+				
+				var clock=document.getElementsByClassName("time");
+				clock[0].style.fontWeight="700";
+				clock[0].style.fontSize="100px";
+				clock[0].style.color="rgba(14, 216, 196)";
+				//clock[0].style.position="absolute";
+				clock[0].style.left="50%";
+				clock[0].style.top="50%";
+				clock[0].style.transform="translateX(-50%) translateY(-50%)" ;
+				clock[0].style.textShadow="5px 5px 20px rgba(14,216,196,0.5)";
+				clock[0].style.fontFamily="'Orbitron', sans-serif";	
+				clock[0].style.fontWeight="700";
+				}
+			myWatch();
+			var bg=document.getElementsByClassName("wrapper");
+				//bg[0].style.position="absolute";
+				bg[0].style.margin="0 auto 0 auto";
+				bg[0].style.padding="0 auto 0 auto";
+				bg[0].style.left="0";
+				bg[0].style.top="0";
+				bg[0].style.height="100%";
+				bg[0].style.width="100%";
+				
+		</script>
+	</body>
+</html>
